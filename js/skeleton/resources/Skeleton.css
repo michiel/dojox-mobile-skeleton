@@ -1,0 +1,115 @@
+/* iOS styles */
+
+/* vertically center the image */
+.skeletonRefresh {
+	float:right;
+}
+.skeletonRefresh img	{
+	margin-top:6px;
+}
+
+/* skeleton pane */
+.mblScrollableViewContainer {
+	padding-bottom:40px !important;
+}
+
+.skeletonList {
+	
+}
+.skeletonHidden {
+	display:none;
+}
+
+.skeletonList li {
+	min-height:55px;
+	padding-top:8px;
+}
+
+.skeletonListItem { /* special formatting to allow 2 lines of content */
+	line-height:18px;
+	height:auto;
+}
+
+/* user's avatar */
+.skeletonAvatar {
+	float:left;
+}
+/* content wrapper for tweets */
+.skeletonContent {
+	padding-left:60px;
+}
+
+/* username formatting */
+.skeletonUser {
+	font-size:80%;
+}
+
+/* actual tweet text formatting */
+.skeletonText {
+	font-size:70%;
+	font-weight:normal;
+	padding-right:50px;
+	padding-bottom:10px;
+}
+
+.android .skeletonText {
+	font-size:50%;
+}
+
+
+/* tweet time */
+.skeletonTime {
+	float:right;
+	color:#777;
+	font-size:65%;
+	font-weight:normal;
+	padding-right:10px;
+}
+
+/* clears floats at the end of the list item */
+.skeletonClear {
+	clear:both;
+}
+
+.skeletonSwitch {
+	right:10px;
+	top:10px;
+	float:right;
+}
+
+.skeletonHidden {
+	display:none;
+}
+
+.skeletonTabBar {
+	margin-top:-49px;
+}
+
+
+/* Android styles */
+
+.android .skeletonRefresh img {
+    margin-top: 3px;
+}
+
+.android .mblRoundRectList {
+    background-color: #000;
+    border: none;
+}
+
+.android .skeletonTime {
+    color: #FFF;
+}
+
+.android .mblTabBarButtonTextBox {
+    color: #FFF;
+}
+
+.android .mblTabBar .mblTabButtonSelected {
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.android .mblColorDefaultSet {
+    background: #FFC700;
+} 

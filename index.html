@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" /> 
+		
+		<title>Skeleton Mobile</title>
+		<link href="js/skeleton/resources/Skeleton.css" rel="stylesheet" />
+		<script type="text/javascript">
+			djConfig = {
+				isDebug: true,
+				baseUrl: './',
+				modulePaths: {
+					skeleton: 'js/skeleton'
+				},
+				parseOnLoad: false
+			};
+		</script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js.uncompressed.js"></script>
+		<script>
+		(function(){
+			var l = document.createElement("link"), h = document.getElementsByTagName("head")[0];
+			var isAndroid = navigator.userAgent.indexOf("Android") > -1;
+			l.setAttribute("rel", "stylesheet");
+			l.setAttribute("href", "http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojox/mobile/themes/" + (isAndroid ? "android/android.css" : "iphone/iphone.css"));
+			h.insertBefore(l, h.firstChild);
+			
+			dojo.require("dojox.mobile.parser");
+			dojo.require("dojox.mobile");
+			dojo.require("dojox.mobile.TabBar");
+			dojo.requireIf(!dojo.isWebKit, "dojox.mobile.compat");
+			dojo.require("skeleton.Skeleton"); 
+      dojo.require("skeleton.SettingsView"); 
+
+			dojo.ready(function() {
+				if(isAndroid) {
+					var imagePath = "js/skeleton/resources/images/";
+					dojo.forEach(document.getElementsByClassName("skeletonRefresh"), function(btn) {
+						dojo.attr(btn, "iconLoading", imagePath + "androidLoading.gif");
+					});
+					dojo.attr(dojo.byId("tabBar"), "iconBase", imagePath + "iconStripAndroid.png");
+				}
+				dojox.mobile.parser.parse();
+			});
+			
+		})();
+		</script>
+	</head>
+	<body>
+		
+		<div id="home" dojoType="skeleton.Skeleton" selected="true">
+			<h1 dojoType="dojox.mobile.Heading" fixed="top">
+				<!-- the refresh button -->
+				<div dojoType="dojox.mobile.ToolBarButton" class="mblDomButton skeletonRefresh" icon="js/skeleton/resources/images/refresh.png"></div>
+				Home
+			</h1>
+			<ul dojoType="dojox.mobile.RoundRectList" class="skeletonList"></ul>
+		</div>
+		
+		<div id="settings" dojoType="skeleton.SettingsView" views="tweets,mentions">
+			<h1 dojoType="dojox.mobile.Heading" fixed="top">Settings</h1>
+			<h2 dojoType="dojox.mobile.RoundRectCategory">Show</h2>
+			<ul dojoType="dojox.mobile.RoundRectList" class="skeletonList"></ul>
+		</div>
+		
+		<ul dojoType="dojox.mobile.TabBar" id="tabBar" class="skeletonTabBar" iconBase="js/skeleton/resources/images/iconStrip.png">
+			<!-- top left width height -->
+			<li dojoType="dojox.mobile.TabBarButton" iconPos1="0,0,29,30" iconPos2="29,0,29,30" selected="true" moveTo="home">Home</li>
+			<li dojoType="dojox.mobile.TabBarButton" iconPos1="0,58,29,30" iconPos2="29,58,29,30" moveTo="settings">Settings</li>
+		</ul>
+		
+	</body>
+</html>
